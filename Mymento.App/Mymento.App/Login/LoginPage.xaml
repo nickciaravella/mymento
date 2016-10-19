@@ -21,9 +21,7 @@
 
       <Entry  Text="{Binding Username}" Placeholder="email address" />
       <Entry  Text="{Binding Password}" Placeholder="password" IsPassword="True" />
-      <Button Text="login"
-              IsEnabled="{Binding IsLoginButtonEnabled}"
-              Command="{Binding OnLoginCommand}" />
+      <Button Text="login" Command="{Binding OnLoginCommand}" />
       <Button Text="register" 
               FontSize="15"
               BackgroundColor="Transparent"
