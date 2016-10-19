@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Xamarin.Forms;
-
-namespace Mymento.App
+﻿namespace Mymento.App
 {
+    using Xamarin.Forms;
+
     public class App : Application
     {
         public App()
