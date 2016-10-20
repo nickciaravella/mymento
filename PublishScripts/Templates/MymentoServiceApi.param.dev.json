@@ -1,0 +1,29 @@
+{
+  "siteName": {
+    "value": "mymento"
+  },
+  "hostingPlanName": {
+    "value": "Mymento-AppService"
+  },
+  "siteLocation": {
+    "value": "West US 2"
+  },
+  "sku": {
+    "value": "Free"
+  },
+  "workerSize": {
+    "value": "0"
+  },
+  "siteMode": {
+    "value": "Limited"
+  },
+  "computeMode": {
+    "value": "0"
+  },
+  "subscriptionId": {
+    "value": "f67933a6-7119-41ff-8d62-fdb1bae845bd"
+  },
+  "resourceGroup": {
+    "value": "Mymento-ResourceGroup"
+  }
+}
