@@ -18,7 +18,7 @@
         [Route]
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IHttpActionResult> PostAccount(UserModel userModel)
+        public async Task<IHttpActionResult> PostAccountAsync(UserModel userModel)
         {
             if (!ModelState.IsValid)
             {
@@ -29,6 +29,16 @@
 
             IHttpActionResult errorResult = GetErrorResult(result);
             return errorResult ?? Ok();
+        }
+
+        [Route]
+        [HttpGet]
+        [Authorize]
+        public async Task<IHttpActionResult> GetAccountAsync()
+        {
+            // NOTE: This is just to test the [Authorize] attribute for now.
+            await Task.Delay(0);
+            return Ok();
         }
 
         protected override void Dispose(bool disposing)
