@@ -15,8 +15,9 @@
             _repo = new AuthRepository();
         }
 
-        [AllowAnonymous]
+        [Route]
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IHttpActionResult> PostAccount(UserModel userModel)
         {
             if (!ModelState.IsValid)
