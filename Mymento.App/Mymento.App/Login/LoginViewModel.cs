@@ -1,8 +1,11 @@
 ﻿namespace Mymento.App.Login
 {
+    using System;
     using System.ComponentModel;
     using System.Threading.Tasks;
     using System.Windows.Input;
+    using Mymento.App.DataAccess;
+    using Mymento.App.Services;
     using Xamarin.Forms;
 
     public class LoginViewModel : INotifyPropertyChanged
@@ -11,6 +14,7 @@
 
         private string username;
         private string password;
+        private bool isCurrentlyLoggingIn;
 
         public LoginViewModel()
         {
@@ -22,6 +26,8 @@
                 async (_) => await this.OnRegisterAsync());
         }
 
+        public IAlertService AlertService { get; set; }
+
         public ICommand OnLoginCommand { get; set; }
 
         public ICommand OnRegisterCommand { get; set; }
@@ -32,7 +38,7 @@
             set
             {
                 this.username = value;
-                this.OnEntryUpdated();
+                this.EvaluateLoginCommand();
             }
         }
 
@@ -42,19 +48,46 @@
             set
             {
                 this.password = value;
-                this.OnEntryUpdated();
+                this.EvaluateLoginCommand();
             }
         }
 
-        private void OnEntryUpdated() =>
-            ((Command)this.OnLoginCommand).ChangeCanExecute();
+        private void EvaluateLoginCommand() =>
+            ((Command) this.OnLoginCommand).ChangeCanExecute();
 
-        private Task OnLoginAsync() => Task.Delay(0);
+        private async Task OnLoginAsync()
+        {
+            var client = new MymentoServiceClient();
+            try
+            {
+                this.UpdateIsUserLoggingIn(true);
+
+                AccessToken token = await client.LoginAsync(this.Username, this.Password);
+            }
+            catch (Exception)
+            {
+                await this.AlertService.ShowAlertAsync(
+                    "Login Failed",
+                    "Invalid username or password.",
+                    "Ok");
+            }
+            finally
+            {
+                this.UpdateIsUserLoggingIn(false);
+            }
+        }
 
         private bool CanLogin() =>
             !string.IsNullOrWhiteSpace(this.Username) &&
-            !string.IsNullOrWhiteSpace(this.Password);
+            !string.IsNullOrWhiteSpace(this.Password) &&
+            !isCurrentlyLoggingIn;
 
         private Task OnRegisterAsync() => Task.Delay(0);
+
+        private void UpdateIsUserLoggingIn(bool isUserLoggingIn)
+        {
+            this.isCurrentlyLoggingIn = isUserLoggingIn;
+            this.EvaluateLoginCommand();
+        }
     }
 }

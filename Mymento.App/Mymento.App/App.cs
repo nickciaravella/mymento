@@ -8,7 +8,7 @@
         public App()
         {
             // The root page of your application
-            MainPage = new LoginPage();
+            MainPage = new RootTabbedPage();
         }
 
         protected override void OnStart()
