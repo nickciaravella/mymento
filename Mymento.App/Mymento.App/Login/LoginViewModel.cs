@@ -63,6 +63,12 @@
                 this.UpdateIsUserLoggingIn(true);
 
                 AccessToken token = await client.LoginAsync(this.Username, this.Password);
+
+                await DependencyService
+                    .Get<IUserCredentialStore>()
+                    .SaveUserCredentialAsync(new UserCredential(this.Username, this.Password));
+
+                MessagingCenter.Send(this, "UserLoginComplete");
             }
             catch (Exception)
             {

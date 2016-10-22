@@ -1,4 +1,7 @@
-﻿namespace Mymento.App.Droid
+﻿using Mymento.App.Droid.Login;
+[assembly: Xamarin.Forms.Dependency(typeof(AndroidUserCredentialStore))]
+
+namespace Mymento.App.Droid
 {
     using Android.App;
     using Android.Content.PM;

@@ -1,6 +1,5 @@
 ﻿namespace Mymento.App
 {
-    using System.Threading.Tasks;
     using Mymento.App.Login;
     using Xamarin.Forms;
 
@@ -11,8 +10,9 @@
             this.Title = "TabbedPage";
 
             this.ItemsSource = new NamedColor[] {
-                new NamedColor ("Upcoming", Color.Red),
-                new NamedColor ("Things", Color.Green)
+                new NamedColor ("Reminders", Color.Red),
+                new NamedColor ("Things", Color.Green),
+                new NamedColor ("Me", Color.Blue),
             };
 
             this.ItemTemplate = new DataTemplate(() => new NamedColorPage());
@@ -21,8 +21,36 @@
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            var loginPage = new LoginPage();
-            await Navigation.PushModalAsync(loginPage, false);
+
+            var credential = await DependencyService
+                .Get<IUserCredentialStore>()
+                .GetCurrentUserCredentialAsync();
+
+            /*
+            // For testing (until logout is implemented)
+            // Issue: https://github.com/nickciaravella/mymento/issues/7
+            await DependencyService
+                .Get<IUserCredentialStore>()
+                .RemoveUserCredentialAsync(credential);
+
+            credential = await DependencyService
+                .Get<IUserCredentialStore>()
+                .GetCurrentUserCredentialAsync();
+            */
+
+            var isUserLoggedIn = credential != null;
+
+            if (!isUserLoggedIn)
+            {
+                MessagingCenter.Subscribe<LoginViewModel>(this, "UserLoginComplete", this.LoginCompleted);
+                var loginPage = new LoginPage();
+                await Navigation.PushModalAsync(loginPage, false);
+            }
+        }
+
+        private async void LoginCompleted(LoginViewModel obj)
+        {
+            await Navigation.PopModalAsync(true);
         }
     }
 
