@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Mymento.App.Login;assembly=Mymento.App"
+             x:Class="Mymento.App.Login.LoginPage">
+  <ContentPage.BindingContext>
+    <local:LoginViewModel />
+  </ContentPage.BindingContext>
+  <ScrollView>
+    <StackLayout VerticalOptions="Center"
+                HorizontalOptions="FillAndExpand"
+                Orientation="Vertical"
+                Spacing="15"
+                Padding="50">
+
+      <!-- App name and catch phrase -->
+      <StackLayout Padding="0,0,0,50">
+        <Label FontSize="35" HorizontalOptions="Center">mymento</Label>
+        <Label FontSize="15" HorizontalOptions="Center">Never forget...</Label>
+      </StackLayout>
+
+      <Entry  Text="{Binding Username}" Placeholder="email address" />
+      <Entry  Text="{Binding Password}" Placeholder="password" IsPassword="True" />
+      <Button Text="login" Command="{Binding OnLoginCommand}" />
+      <Button Text="register" 
+              FontSize="15"
+              BackgroundColor="Transparent"
+              IsEnabled="True"
+              Command="{Binding OnRegisterCommand}" />
+    </StackLayout>
+  </ScrollView>
+</ContentPage>

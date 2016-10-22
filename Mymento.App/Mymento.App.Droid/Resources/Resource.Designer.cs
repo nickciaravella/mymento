@@ -26,6 +26,8 @@ namespace Mymento.App.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::PCLCrypto.Resource.String.ApplicationName = global::Mymento.App.Droid.Resource.String.ApplicationName;
+			global::PCLCrypto.Resource.String.Hello = global::Mymento.App.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Resource.Animation.abc_fade_in = global::Mymento.App.Droid.Resource.Animation.abc_fade_in;
 			global::Xamarin.Forms.Platform.Resource.Animation.abc_fade_out = global::Mymento.App.Droid.Resource.Animation.abc_fade_out;
 			global::Xamarin.Forms.Platform.Resource.Animation.abc_grow_fade_in_from_bottom = global::Mymento.App.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;
