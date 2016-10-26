@@ -1,13 +1,14 @@
 ﻿namespace Mymento.App.Login
 {
-    using Mymento.App.Shared;
+    using Mymento.Common.Validation;
 
     public class UserCredential
     {
         public UserCredential(string emailAddress, string password)
         {
-            Ensure.ArgumentIsNotNullOrWhitespace(nameof(emailAddress), emailAddress);
-            Ensure.ArgumentIsNotNullOrWhitespace(nameof(password), password);
+            emailAddress.ArgumentShouldNotBeNullOrWhitespace(nameof(emailAddress));
+            password.ArgumentShouldNotBeNullOrWhitespace(nameof(password));
+
             this.EmailAddress = emailAddress;
             this.Password = password;
         }

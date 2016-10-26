@@ -154,6 +154,12 @@
   <ItemGroup>
     <Folder Include="Controllers\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Mymento.Common\Mymento.Common\Mymento.Common.csproj">
+      <Project>{302e308d-aeb8-41bc-acc7-71de45a1543a}</Project>
+      <Name>Mymento.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
