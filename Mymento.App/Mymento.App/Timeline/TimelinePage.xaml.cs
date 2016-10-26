@@ -13,8 +13,6 @@ namespace Mymento.App.Timeline
         public TimelinePage()
         {
             InitializeComponent();
-
-            this.Title = "Timeline";
         }
     }
 }
