@@ -36,7 +36,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{3C3137
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mymento.Common", "Mymento.Common\Mymento.Common\Mymento.Common.csproj", "{302E308D-AEB8-41BC-ACC7-71DE45A1543A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mymento.Common.UnitTests", "Mymento.Common.UnitTests\Mymento.Common.UnitTests.csproj", "{D76F0B91-0DC9-4333-959F-D0B02A6D7CA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mymento.Common.UnitTests", "Mymento.Common\Mymento.Common.UnitTests\Mymento.Common.UnitTests.csproj", "{D76F0B91-0DC9-4333-959F-D0B02A6D7CA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

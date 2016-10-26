@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mymento.App.Timeline.TimelinePage"
+             xmlns:local="clr-namespace:Mymento.App.Timeline;assembly=Mymento.App"
+             Title="Timeline">
+  <ContentPage.BindingContext>
+    <local:TimelineViewModel />
+  </ContentPage.BindingContext>
+  <ListView 
+    ItemsSource="{Binding ListSource}"
+    RowHeight="150"
+    SeparatorColor="Gray">
+      <ListView.ItemTemplate>
+          <DataTemplate>
+              <ViewCell>
+                  <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="15">
+                    <Label FontSize="25" Text="Mow the Lawn" />
+                    <Label FontSize="15" Text="October 30, 2016" />
+                    <Label FontSize="30" Text="5 days" TextColor="Green" />
+                  </StackLayout>
+              </ViewCell>
+          </DataTemplate>
+      </ListView.ItemTemplate>
+  </ListView>
+</ContentPage>

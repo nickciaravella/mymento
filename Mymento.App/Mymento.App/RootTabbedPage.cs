@@ -1,6 +1,7 @@
 ﻿namespace Mymento.App
 {
     using Mymento.App.Login;
+    using Mymento.App.Timeline;
     using Xamarin.Forms;
 
     public class RootTabbedPage : TabbedPage
@@ -8,14 +9,9 @@
         public RootTabbedPage()
         {
             this.Title = "TabbedPage";
-
-            this.ItemsSource = new NamedColor[] {
-                new NamedColor ("Reminders", Color.Red),
-                new NamedColor ("Things", Color.Green),
-                new NamedColor ("Me", Color.Blue),
-            };
-
-            this.ItemTemplate = new DataTemplate(() => new NamedColorPage());
+            Children.Add(new TimelinePage());
+            Children.Add(new ContentPage() {Title = "Things"});
+            Children.Add(new ContentPage() { Title = "Me" });
         }
 
         protected override async void OnAppearing()
