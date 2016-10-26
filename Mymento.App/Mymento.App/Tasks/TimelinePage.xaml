@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Mymento.App.Tasks.TimelinePage"
+             xmlns:tasks="clr-namespace:Mymento.App.Tasks;assembly=Mymento.App"
+             Title="Timeline">
+  <ContentPage.BindingContext>
+    <tasks:TimelineViewModel />
+  </ContentPage.BindingContext>
+  <ListView 
+    ItemsSource="{Binding TimelineCells}"
+    RowHeight="150"
+    SeparatorColor="Gray">
+      <ListView.ItemTemplate>
+          <DataTemplate>
+              <ViewCell>
+                  <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="15">
+                    <Label FontSize="25" 
+                           Text="{Binding TaskName}"
+                           LineBreakMode="TailTruncation" />
+                    <Label FontSize="15" 
+                           Text="{Binding DueDate}"
+                           LineBreakMode="TailTruncation" />
+                    <Label FontSize="30"
+                           Text="{Binding TimeLeft}"
+                           TextColor="{Binding TimeLeftColor}"
+                           LineBreakMode="TailTruncation" />
+                  </StackLayout>
+              </ViewCell>
+          </DataTemplate>
+      </ListView.ItemTemplate>
+  </ListView>
+</ContentPage>

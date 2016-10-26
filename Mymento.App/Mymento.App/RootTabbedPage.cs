@@ -1,7 +1,7 @@
 ﻿namespace Mymento.App
 {
     using Mymento.App.Login;
-    using Mymento.App.Timeline;
+    using Mymento.App.Tasks;
     using Xamarin.Forms;
 
     public class RootTabbedPage : TabbedPage

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace Mymento.App.Timeline
+namespace Mymento.App.Tasks
 {
     public partial class TimelinePage : ContentPage
     {

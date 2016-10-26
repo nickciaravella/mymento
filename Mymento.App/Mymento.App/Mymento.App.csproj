@@ -48,10 +48,11 @@
     <Compile Include="Services\AlertService.cs" />
     <Compile Include="Services\IAlertService.cs" />
     <Compile Include="Login\IUserCredentialStore.cs" />
-    <Compile Include="Timeline\TimelinePage.xaml.cs">
+    <Compile Include="Tasks\TimelineListCellViewModel.cs" />
+    <Compile Include="Tasks\TimelinePage.xaml.cs">
       <DependentUpon>TimelinePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Timeline\TimelineViewModel.cs" />
+    <Compile Include="Tasks\TimelineViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -89,7 +90,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Timeline\TimelinePage.xaml">
+    <EmbeddedResource Include="Tasks\TimelinePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
