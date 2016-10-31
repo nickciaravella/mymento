@@ -1,12 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Mymento.App.Tasks;assembly=Mymento.App"
+             xmlns:behaviors="clr-namespace:Mymento.App.Behaviors;assembly=Mymento.App"
              x:Class="Mymento.App.Tasks.TimelinePage"
-             xmlns:tasks="clr-namespace:Mymento.App.Tasks;assembly=Mymento.App"
              Title="Timeline">
   <ContentPage.BindingContext>
-    <tasks:TimelineViewModel />
+    <local:TimelineViewModel />
   </ContentPage.BindingContext>
+  <ContentPage.Behaviors>
+    <behaviors:EventToCommandBehavior 
+      EventName="Appearing"
+      Command="{Binding LoadTimelineTasksCommand}"/>
+  </ContentPage.Behaviors>
   <ListView 
     ItemsSource="{Binding TimelineCells}"
     RowHeight="150"

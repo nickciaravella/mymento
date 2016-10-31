@@ -1,17 +1,14 @@
 ﻿namespace Mymento.App.Login
 {
     using System;
-    using System.ComponentModel;
     using System.Threading.Tasks;
     using System.Windows.Input;
     using Mymento.App.DataAccess;
     using Mymento.App.Services;
     using Xamarin.Forms;
 
-    public class LoginViewModel : INotifyPropertyChanged
+    public class LoginViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private string username;
         private string password;
         private bool isCurrentlyLoggingIn;
